@@ -31,7 +31,7 @@ install() {
   echo "Downloading migrate from ${download_url}"
   curl -sSL "$download_url" -o "${tmp_download_dir}/gomigrate.tar.gz"
   tar -xzf "${tmp_download_dir}/gomigrate.tar.gz" -C "${bin_install_path}"
-  mv "${bin_install_path}/migrate.${platform}-${arch}" "${bin_install_path}/migrate"
+  [ -f "${bin_install_path}/migrate.${platform}-${arch}" ] && mv "${bin_install_path}/migrate.${platform}-${arch}" "${bin_install_path}/migrate"
   rm -f "${tmp_download_dir}/gomigrate.tar.gz"
 }
 
